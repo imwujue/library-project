@@ -1,0 +1,251 @@
+@import "../templates/bookInfo.wxss";
+@import "../templates/bookList.wxss";
+
+.container{
+    display:flex;
+    flex-direction: column;
+    }
+
+.head-img{
+    width:100%;
+    height: 380rpx;
+    min-height: 380rpx;
+    opacity: 0.9;
+    -webkit-filter:blur(20px);
+}
+
+.head-img-hover{
+    width: 100%;
+    height: 320rpx;
+    position:absolute;
+    top:0;
+    left:0;
+    display:flex;
+    flex-direction: column;
+}
+.main-title{
+    font-size: 19px;
+    color:#fff;
+    text-shadow:1px 1px 2px #000000;
+    font-weight:bold;
+    margin-top: 40rpx;
+    margin-left: 300rpx;
+    letter-spacing: 2px;
+}
+
+.sub-title{
+    font-size: 28rpx;
+    color:#fff;
+    text-shadow:1px 1px 2px #000000;
+    margin-left: 0rpx;
+    margin-top: -40rpx;
+    margin-bottom: -40rpx;
+}
+.book-img{
+    height:238rpx;
+    width: 175rpx;
+    box-shadow:1px 1px 2px #000000;
+    position: absolute;
+    top:40rpx;
+    left: 60rpx;
+}
+.grade{
+  position: absolute;
+    text-shadow:1px 1px 2px #000000;
+    top:300rpx;
+    left: 110rpx;
+    color:#fff ;
+}
+
+.summary{
+    margin-left:40rpx;
+    margin-top: 40rpx;
+    color: #777777;
+}
+.flex-row{
+    display:flex;
+    margin-left: 300rpx;
+    flex-direction: column;
+    margin-bottom: 10rpx;
+}
+
+.mark{
+    margin-right: 30rpx;
+    white-space:nowrap;
+    color: #fdc441;
+}
+
+.buttonMenu
+{ 
+    flex-direction: row;
+    margin-left: 30rpx;
+    color: #fdc441;
+    margin-top: 30rpx;
+}
+.opts{
+  width: 300rpx;
+  font-size: 30rpx; 
+  
+  
+}
+/*储存信息表格 */
+.table {
+  border: 0px solid darkgray;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+.tr {
+  display: flex;
+  width: 95%;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+.td {
+    padding: 2rpx;
+    width:40%;
+    justify-content: center;
+    text-align: center;
+}
+.bg-w{
+  background: snow;
+}
+.bg-g{
+  background: #ffed97;
+}
+.th {
+  width: 40%;
+  justify-content: center;
+  background: #fd8f26;
+  color: #fff;
+  display: flex;
+  height: 40rpx;
+  align-items: center;
+}
+.book_option{
+  width:120rpx; 
+  height:60rpx; 
+  font-size:28rpx
+}
+/*导读*/
+.guideRead{
+ width: 90%;
+ margin: auto;
+ background: #fff;
+ /*border-left: 1px solid black;
+ border-right: 1px solid black;*/
+ padding: 15rpx 25rpx 5rpx 25rpx;
+ font-size: 30rpx;
+ margin-bottom: 5rpx;
+}
+
+/*书籍信息*/
+.bookInfo
+{
+ width: 90%;
+ margin: auto;
+ background: #fff;
+ /*border-left: 1px solid black;
+ border-right: 1px solid black;*/
+ padding: 15rpx 25rpx 15rpx 25rpx;
+ font-size: 30rpx;
+ margin-bottom: 10rpx;
+}
+.bookList{
+ width: 90%;
+ margin: auto;
+ /*border-top: 1px solid black;
+ border-bottom: 1px solid black;*/
+ padding: 15rpx 25rpx 15rpx 25rpx;
+ font-size: 25rpx;
+ margin-bottom: 5rpx;
+}
+/* 精彩导读*/
+.dra{
+ margin-top: 10px;
+ font-size: 10pt;
+ display: -webkit-box;
+ overflow: hidden;
+ -webkit-box-orient: vertical;
+ text-overflow: ellipsis;
+}
+
+.down{
+    transform: rotate(180deg);
+}
+
+/*用户评论*/
+.rate{
+ color: #777777;
+ float: right;
+ margin-right: 20rpx;
+}
+
+/*用户添加评论*/
+.add_comments{
+    width:90%;
+    margin: auto;
+    background: #fff;
+    padding: 15rpx 25rpx 15rpx 25rpx;
+    font-size: 25rpx;
+    margin-bottom: 10rpx;
+}
+#comment{
+  width: 638rpx;
+  min-height: 150rpx;
+  font-size: 30rpx;
+  margin-bottom: 5rpx;
+  border: 1rpx solid #fdc441;
+  padding: 15rpx;
+}
+#rate{
+  text-align: center;
+  font-size: 35rpx;
+  border: 1rpx solid #fdc441;
+  margin-bottom: 10rpx;
+}
+#commit{
+  width: 100%;
+  border: 1rpx solid #fdc441;
+  background-color: #fff;
+  color: #464646;
+}
+
+.c_time{
+  margin-top: 40rpx;
+  color: #777777;
+  font-size: 25rpx;
+}
+.userinfo-avatar {
+  width: 70rpx;
+  height: 70rpx;
+  margin: 5rpx;
+  border-radius: 50%;
+  border:1rpx solid #fdc441;
+}
+
+
+#moreComments{
+  width: 40%;
+  height: 70rpx;
+  font-size: 30rpx;
+  border: 1rpx solid #fff;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  background-color: #fff;
+  color: #fdc441;
+}
+.comments{
+  background: #fff;
+}
+
+.commentInfo{
+ width: 90%;
+ margin: auto;
+ background: #fff;
+ /*border-left: 1px solid black;
+ border-right: 1px solid black;*/
+ padding: 15rpx 25rpx 15rpx 25rpx;
+ font-size: 30rpx;
+ border-bottom: 1rpx solid #edecee;
+}

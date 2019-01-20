@@ -1,0 +1,94 @@
+<!--pages/orders/unfinishedOrder/unfinishedOrder.wxml-->
+
+<!--pages/orders/finishedOrder/finishedOrder.wxml-->
+<!--<text>pages/orders/finishedOrder/finishedOrder.wxml</text>-->
+
+<!--// dn-paid  dn-confirmed  on-going  failed-->
+
+<view class="order_area">
+
+  <view wx:if="{{orders.length == 0}}" class="epo_container">
+
+    <view class="img_ct">
+      <image wx:if="{{orders.length == 0}}" src="/images/icon/empty_order.png"></image>
+
+    </view>
+
+    <view class="img_ct">
+      <text>您目前还没有失效订单</text>
+    </view>
+
+  </view>
+
+  <block wx:for-items="{{orders}}" wx:key="{{orders.id}}">
+    <view class="order_bg"  wx:if="{{item.order_state == 'failed'}}">
+      <!--control button-->
+      <view class="control_area">
+        <icon wx:if="{{item.order_state == 'failed'}}" type="cancel" class="icon" size="20" />
+
+        <view class="control_text_box">
+          <text wx:if="{{item.order_state == 'failed'}}" class="control_text">已失效</text>
+          <icon type="String" />
+        </view>
+        <view class="control_state_box">
+          <!--去付款、去确认、正在进行、已失效-->
+    
+          <text wx:if="{{item.order_state == 'failed'}}" class="control_text"></text>
+        </view>
+      </view>
+
+      <!--progress bar-->
+      <view class="progress-box"  wx:if="{{item.order_state == 'failed'}}">
+        <!--进度条-->
+        <progress wx:if="{{item.order_state == 'failed'}}" percent="100" color="#f90000" stroke-width="3" />
+
+      </view>
+      <!--end of progress bar-->
+
+      <!--book info-->
+      <view class="book_area"  wx:if="{{item.order_state == 'failed'}}">
+        <block wx:for-items="{{item.books}}">
+          <view class="book_box">
+            <view class="book_content">
+              <view class="book_img">
+                <!--the image of the book-->
+                <image src="{{item.book_img_url}}" class="book_img_pic"></image>
+              </view>
+              <view class="book_intro">
+                <view class="book_info_text">
+                  <text class="book_intro_title">{{item.book_title}}</text>
+                </view>
+                <view class="book_info_text">
+                  <text class="book_intro_content">{{item.book_content}}</text>
+                </view>
+              </view>
+            </view>
+            <view class="state_button">
+              <button class="check_button" bindtap="check_book" id="{{item.book_url}}" type="default">查看</button>
+            </view>
+          </view>
+        </block>
+      </view>
+      <!--book info end-->
+
+      <view class="button_area">
+        <view class="button_row"  wx:if="{{item.order_state == 'failed'}}">
+          <!-- <button bindtap="deleteOrder" wx:if="{{item.order_state == 'failed'}}" id="{{item.id}}" class="code_button delete_button">删除订单</button> -->
+          <button bindtap="showQRcode" id="{{item.id}}" class="code_button qr_code_button">显示二维码</button>
+        </view>
+      </view>
+
+      <!--detail info -->
+      <view class="info_area">
+        <block wx:for-items="{{item.order_info}}">
+          <view class="info_line">
+            <text class="info_text">{{item}}</text>
+          </view>
+        </block>
+      </view>
+      <!--info end-->
+
+
+    </view>
+  </block>
+</view>

@@ -1,0 +1,76 @@
+<view class="search">
+  <view style="margin-top: 20rpx;">
+    <input value="{{inputValue}}" type="text" placeholder="ISBN、书名、作者、用户" bindconfirm="bindKeyFinish" bindinput="bindKeyInput" confirm-type="search" name="search" />
+    <view style=" margin-top: -55rpx;" catchtap="cancel">
+      <text>取消</text>
+    </view>
+    <view style="margin-top: -100rpx; margin-left: 20rpx;" >
+      <picker bindchange="bindPickerChange" value="{{search_type}}" range="{{selection}}">
+        <text style="margin-left : 100rpx">
+          {{selection[search_type]}}
+        </text>
+      </picker>
+    </view>
+  </view>
+</view>
+<!-- search history  -->
+<view class="cart-box" wx:if="{{history}}">
+  <!-- wx:for 渲染列表 -->
+  <view wx:for="{{searchData}}" class="history-list" wx:key="{{index}}">
+    <view class="cart-pro-name" catchtap="History" data-his="{{searchData[searchData.length-index-1]}}">
+      <image src="../../images/icon/history.png"></image>
+      <text>{{searchData[searchData.length-index-1]}}</text>
+    </view>
+
+    <!-- 删除按钮 -->
+    <text class="cart-del" bindtap="deleteList" data-index="{{searchData.length-index-1}}"> × </text>
+  </view>
+</view>
+
+<!-- search result  -->
+<view class="cart-box" wx:if="{{s_result && search_type == 0}}">
+  <!-- 显示图书 -->
+  <!-- wx:for 渲染列表 -->
+  <view wx:for="{{books}}" class="cart-list" wx:key="{{index}}">
+    <!-- 点击图片可跳转到详情 -->
+    <navigator url="../bookDetail/bookDetail?isbn={{item.bookId}}&&unid=null">
+      <image class="cart-thumb" src="{{item.url}}"></image>
+    </navigator>
+    <view class="cart-pro-name">
+      <text>{{item.title}}{{t}}</text>
+      <block wx:for="{{item.authors}}" wx:for-item="author" wx:key="index">
+        <text>{{author}}{{t}} </text>
+      </block>
+      <text style="font-size:25rpx;">馆藏量：<text style="color:#7bd631">{{item.storage_cb}} </text> / {{item.storage}} 本 </text>
+    </view>
+  </view>
+</view>
+
+<!-- search result  -->
+<view class="cart-box" wx:if="{{s_result && search_type == 1}}">
+  <!-- wx:for 渲染列表 -->
+  <view wx:for="{{users}}" class="cart-list-user" wx:key="{{index}}">
+    <!-- 点击图片可跳转到详情 -->
+    <navigator class="nav_list" url="../personalPage/personalPage?userid={{item.userID}}">
+      <image class="cart-user-url" src="{{item.url}}"></image>
+    <view class="cart-pro-name user_name">
+      <text>{{item.user_name}}{{t}}</text>
+    </view>
+    </navigator>
+
+
+  </view>
+</view>
+
+<!-- no result  -->
+<view class="no_result" wx:if="{{no_result}}">
+  <text style="margin-left:170rpx;">没有找到相关内容{{char_gt}}_{{char_lt}} </text>
+  <view style="margin-left:140rpx; margin-top:20rpx;">
+    <image src="../../images/icon/no_result.png" style="width:360rpx; height:260rpx;"></image>
+  </view>
+</view>
+
+<!--no_more-->
+<view class="fix_tip {{disabledRemind?'active':''}}">
+  <text>没有更多啦</text>
+</view>

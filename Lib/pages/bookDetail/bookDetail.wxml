@@ -1,0 +1,168 @@
+<import src="../templates/bookInfo.wxml" />
+<import src="../templates/bookList.wxml" />
+<view class="container">
+ <!--head -->
+  <image class="head-img" src="{{ImageUrl}}" mode="aspectFill" />
+  <view class="head-img-hover" data-src="{{ImageUrl}}" catchtap="viewBookPostImg">
+    <text class="main-title">{{title}}</text>
+    <view class="flex-row">
+      <text class="mark" style="text-shadow:1px 1px 2px #000;">作 者</text>
+      <block wx:for="{{authors}}" wx:for-item="author" wx:key="index">
+        <view class="sub-title">
+          <text>
+            {{author + '\n'}}
+          </text>
+        </view>
+      </block>
+    </view>
+    <view>
+    <image class="book-img" src="{{ImageUrl}}" data-src="{{ImageUrl}}" catchtap="viewBookPostImg" />
+    </view>
+     <text class="grade" >{{grade_ave_f}}分</text>
+  </view>
+  <view class="buttonMenu">
+    <button plain="true" class="opts" style=" color: #fdc441; border-color:#fdc441; margin:15rpx 0rpx 5rpx 20rpx; " bindtap="StorageInfo" data-vis="{{Storagevisible}}">
+      馆藏信息: {{storage}}本
+    </button>
+    <button plain="true" class="opts" style=" color: #fdc441; border-color:#fdc441; margin:-85rpx 0rpx 5rpx 370rpx;" catchtap="preOrder" data-bookId="{{isbn13}}"  wx:if="{{ifBorrow}}" >
+      预定此书
+    </button>
+  </view>
+  <view class="Storage" wx:if="{{Storagevisible}}" >
+  <form>
+  <view class=" table ">
+  <view class="tr bg-w ">
+    <view class="th " >条码号</view>
+    <view class="th ">馆藏地</view>
+    <view class="th ">书刊状态</view>
+    <view class="th ">操作</view>
+  </view>
+  <block wx:for="{{storage_books}}" wx:for-item="sbook" wx:key="{{index}} ">
+    <view class="tr bg-g " wx:if="{{index%2==0}}" style="color:{{sbook.color}}">
+      <view class="td" style="font-size:20rpx;">{{sbook.book_id}}</view>
+      <view class="td">{{sbook.book_location}}</view>
+      <view class="td"> {{sbook.info}}</view>
+      <view class="td" wx:if="{{sbook.option.length > 0}}"><button class="book_option" catchtap="book_option" data-op="{{sbook.option}}" data-unid="{{sbook.book_id}}">{{sbook.option}}</button></view>
+      <view class="td" wx:if="{{sbook.option.length==0}}" style="width: 40%;"></view>
+    </view>
+    <view class="tr" wx:else style="color:{{sbook.color}}">
+       <view class="td" style="font-size:20rpx;">{{sbook.book_id}}</view>
+      <view class="td">{{sbook.book_location}}</view>
+      <view class="td"> {{sbook.info}}</view>
+      <view class="td" wx:if="{{sbook.option.length>0}}"><button class="book_option" catchtap="book_option" data-op="{{sbook.option}}" data-unid="{{sbook.book_id}}">{{sbook.option}}</button></view>
+      <view class="td" wx:if="{{sbook.option.length==0}}" style="width: 40%;"></view>
+    </view>
+  </block>
+ </view>
+  </form>
+  </view>
+ <view class="ttt">
+  <image class="title_pic" src="../../images/icon/title.png"></image>
+  <view class="little_title">
+    精彩导读
+  </view>
+  </view>
+  <view class="guideRead">
+  <text class="dra" style="{{hideText?'-webkit-line-clamp:3':''}}"> {{guide_read}}</text>
+ <image class="{{hideClass}}" wx:if="'up=={{hideClass}}'?'':'down'" bindtap="showall"
+      style="width:25px;height:25px;margin-left:300rpx; margin-top:30rpx;" mode="aspectFit" src="{{localover}}"  />
+  </view>
+
+  <view class="ttt" >
+  <image class="title_pic" src="../../images/icon/title.png"></image>
+  <view class="little_title">
+    书籍信息
+  </view>
+  </view>
+  <view class="bookInfo ">
+  <text>书名: {{title+'\n'}}</text>
+  <block wx:for="{{authors}}" wx:for-item="author" wx:key="index"> 
+  <view><text>作者：{{author}} </text></view>
+  </block>
+  <text>出版社: {{publisher+'\n'}}</text>
+  <text>ISBN: {{isbn13 +'\n'}}</text>
+  <text>中图法分类号:{{subclass}}</text>
+  </view>
+
+  <view class="ttt" >
+  <image class="title_pic" src="../../images/icon/title.png"></image>
+  <view class="little_title">
+    全网比价
+  </view>
+  </view>
+  <view class="bookInfo">
+   
+   <view class="showPrice" wx:if="{{ifPrice}}" >
+    <block wx:for="{{site_prices}}" wx:for-item="price" wx:key="index"> 
+     <view style="width:250rpx"> 
+      <text>购买平台：{{price.site_name}}</text>
+    </view >
+    <view style="float:left; margin-top:-50rpx; margin-left:400rpx">
+      <text>价格：{{price.price}}</text>
+     </view>
+  </block>
+   </view>
+   <view class="noPrice" wx:else>
+   {{message}}
+   </view>
+
+  </view>
+
+  <view class="ttt" >
+  <image class="title_pic" src="../../images/icon/title.png"></image>
+  <view class="little_title">
+    相关推荐
+  </view>
+  </view>
+   <view class="bookInfo">
+   <template is="bookListTemplate" data="{{...RealtiveReCommand}}"></template>
+  </view>
+
+
+  <view class="ttt" >
+    <image class="title_pic" src="../../images/icon/title.png"></image>
+    <view class="little_title">
+    书籍评论
+    </view>
+  </view>
+  <view class="comments" data-allComments="{{comments}}">
+      <block wx:for="{{comments}}" wx:for-item="comment"  wx:key="index">
+     <view class="commentInfo">
+       <view>
+          <image wx:if="{{comment.user.image.length == 0}}" class="userinfo-avatar" src="../../images/index/temp_user.png" background-size="cover" data-user="{{comment.userid}}" bindtap="to_personalPage"></image>
+         <image wx:else class="userinfo-avatar" src="{{comment.user.image}}" background-size="cover" data-user="{{comment.userid}}" bindtap="to_personalPage"></image>
+         <view style="margin-top:-85rpx; margin-left:100rpx;">  
+          <text wx:if="{{comment.user_name.length > 0}}">{{comment.user_name}}</text>
+          <text wx:if="{{comment.user_name.length == 0}}">匿名评论</text>
+          <text class="rate">{{comment.rate}}分</text>
+         </view>
+        <view style="margin-top:-10rpx; margin-left:100rpx">
+         <text class="c_time">{{comment.c_time}}</text>
+        </view>
+       </view>
+       <view style="margin-left:100rpx;">
+        <text  wx:if="{{comment.content.length > 0}}">{{comment.content}} </text>
+        <text  wx:if="{{comment.content.length == 0}}">该用户没有填写评论 </text>
+       </view>
+      </view>
+      </block>
+      <button wx:if="{{moreComments}}" id="moreComments" catchtap="moreComments" data-isbn="{{isbn13}}">查看更多</button>
+  </view>
+
+  <view class="ttt" >
+    <image class="title_pic" src="../../images/icon/title.png"></image>
+    <view class="little_title">
+    添加评论
+    </view>
+  </view>
+  <view class="add_comments">
+  <text>请打分：</text>
+  <picker mode="selector" range="{{array}}" value="{{index}}" bindchange="eventChange" id="rate">
+    <text>{{array[index]}}</text>
+</picker>
+<text>评论：</text>
+  <textarea  id="comment" bindblur="bindTextAreaBlur" />
+  <button id="commit" catchtap="commit" data-rate="{{index}}" data-comment="{{comment}}" data-isbn="{{isbn13}}">提交</button>
+  </view>
+  
+</view>

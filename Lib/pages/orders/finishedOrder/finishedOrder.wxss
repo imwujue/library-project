@@ -1,0 +1,171 @@
+/* pages/orders/finishedOrder/finishedOrder.wxss */
+.order_area{
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    background-color: whitesmoke;
+}
+
+.order_bg{
+    width: 100%;
+    background-color: white;
+    margin-bottom: 40rpx;
+    margin-top: 20rpx;
+    box-shadow: 5rpx 5rpx 5rpx 5rpx #d5d5d5;
+}
+
+.control_area{
+    margin-top: 20rpx;
+    margin-bottom: 10rpx;
+    padding-right: 20rpx;
+    padding-left: 20rpx;
+    height: 50rpx;
+    /*width: 100%;*/
+    display: flex;
+    flex-direction: row;
+    /*background-color: aqua;*/
+}
+
+.icon_img{
+    height: 80%;
+    width: 20rpx;
+    align-self: flex-end;        
+}
+
+.control_text_box{
+    align-self: flex-end;    
+    flex: 50%;
+}
+
+.control_text{
+    /*订单编号*/
+    font-size: 11pt;
+    color: 1f1f1f;    
+}
+
+.control_state_box{
+    align-self: flex-end;
+}
+.control_state{
+    /*订单状态*/
+    font-size: 11pt;
+    color:  brown;
+}
+
+.book_area{
+    min-height: 200rpx;
+    width: 100%;
+}
+
+.book_box{
+    padding: 10rpx;
+    margin-bottom: 10rpx;
+    display: flex;    
+    flex-direction: row;
+    background-color: #fafafa;
+}
+
+.book_content{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: 150rpx;
+}
+
+.book_img{
+    padding: 10rpx;
+}
+
+.book_img_pic{
+    width: 130rpx;
+    height:130rpx;
+}
+
+.book_intro{
+    padding: 10rpx;
+    height: 130rpx;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.book_info_text{
+    display: flex;
+    height: 50rpx;
+    overflow-x: hidden;
+}
+
+.book_intro_title{
+    font-weight: 600;
+    font-size: 15pt;    
+}
+
+.book_intro_content{
+    font-size: 11pt;
+    color: 1f1f1f;
+    font-weight: 100;
+}
+
+.info_area{
+    margin-bottom: 20rpx;
+    min-height: 120rpx;
+    padding: 20rpx;
+    display: flex;
+    flex-direction: column;
+    /*background-color: blanchedalmond;*/
+}
+
+.info_line{
+    min-height: 35rpx;
+    /*line-height: 9pt;*/
+}
+
+.info_text{
+    line-height: 100%;
+    font-size: 9pt;
+    color: #d5d5d5;
+}
+
+.state_button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /*background-color: antiquewhite;*/
+}
+
+
+.button_area{
+    width: 100%;
+    /*background-color: aliceblue;*/
+}
+
+.button_row{
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    /*align-items: flex-end;*/
+}
+
+
+.code_button{
+    border-radius: 50rpx;
+    /*width: 200rpx;*/
+    margin: 10rpx;
+    font-size: 11pt;
+    /*align-self: flex-end;*/
+}
+
+.qr_code_button{
+    
+    background-color: #efefef;
+}
+
+.epo_container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.img_ct{
+  margin-top: 100rpx;
+}

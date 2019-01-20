@@ -1,0 +1,67 @@
+<!--personalPage.wxml-->
+<view class="Info" style="overflow:hidden">
+  <view  bindtap="bindViewTap" class="userinfo">
+   <image src="../../images/index/p2_bg.png" class="per_bg" mode="widthFix"></image>
+    <view style="margin-top: -265px;" >
+    <image wx:if="{{image.length == 0}}" class="userinfo-avatar" src="../../images/index/temp_user.png" background-size="cover"></image>
+    <image wx:else class="userinfo-avatar" src="{{image}}" background-size="cover" ></image> 
+    </view>
+    <text class="userinfo-nickname">{{name}}{{t}} </text>
+    <view style="flex-direction:row;">
+    <text catchtap="loadFollow" data-mode="show_follow">关注：{{follow}}</text> | <text catchtap="loadFollow" data-mode="show_fan"> 粉丝：{{fan}}</text>
+    </view>
+    <button class="follow_btn" wx:if="{{!hisOwn}}" catchtap="toFollow" data-msg="{{followMsg}}">{{followMsg}}</button>
+  </view>
+</view>
+
+<view class="ttt" >
+    <image class="title_pic" src="../../images/icon/title.png"></image>
+    <view class="little_title">
+    所有书评
+    </view>
+  </view>
+ <view class="comments" data-allComments="{{comments}}"  style="overflow:hidden">
+    <block wx:for="{{comments}}" wx:for-item="comment"  wx:key="index">
+     <view class="commentInfo">
+       <view>
+          <image wx:if="{{comment.user.image.length == 0}}" class="comment-avatar" src="../../images/index/temp_user.png" background-size="cover" data-user="{{comment.userid}}"></image>
+          <image wx:else class="comment-avatar" src="{{comment.user.image}}" background-size="cover" data-user="{{comment.userid}}"></image>
+         <view style="margin-top:-85rpx; margin-left:100rpx;">  
+          <text wx:if="{{comment.user_name.length > 0}}">{{comment.user.name}}</text>
+          <text wx:if="{{comment.user_name.length == 0}}">匿名评论</text>
+          <text class="rate">{{comment.rate}}分</text>
+         </view>
+        <view style="margin-top:-10rpx; margin-left:100rpx">
+         <text class="c_time">{{comment.c_time}}</text>
+        </view>
+       </view>
+       <view style="margin-left:100rpx;">
+        <text  wx:if="{{comment.content.length > 0}}">{{comment.content}} </text>
+        <text  wx:if="{{comment.content.length == 0}}">该用户没有填写评论 </text>
+       </view>
+
+      <view class="bookCard">
+        <!-- 点击图片可跳转到详情 -->
+        <navigator url="../bookDetail/bookDetail?unid=nul&isbn={{comment.book.isbn13}}">
+            <image class="book_img" src="{{comment.book.image}}"></image>
+        </navigator>
+        <view class="cart-pro-name">
+        <text>{{comment.book.title}}{{t}}</text>
+        <text style="font-size:25rpx;">图书编号: {{comment.book.isbn13}}{{t}}</text>
+        <text style="font-size:25rpx;">馆藏量：<text style="color:#7bd631">{{comment.book.storage_cb}} </text> / {{comment.book.storage}} 本 </text>
+        </view>
+      </view>   
+     </view>
+     
+     
+      
+ 
+    </block>
+  </view>
+
+<loading hidden="{{hiddenLoading}}">数据正在加载</loading>
+ <view class="fix_tip {{disabledRemind?'active':''}}">
+    <text>没有更多啦</text>
+</view>
+
+

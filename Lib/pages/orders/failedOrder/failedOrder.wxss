@@ -1,0 +1,52 @@
+/* pages/orders/unfinishedOrder/unfinishedOrder.wxss */
+@import "../finishedOrder/finishedOrder.wxss";
+.icon{
+    align-self: flex-end;
+    margin-right: 10rpx;
+}
+
+.button_area{
+    width: 100%;
+    /*background-color: aliceblue;*/
+}
+
+.button_row{
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    /*align-items: flex-end;*/
+}
+
+.code_button{
+    border-radius: 50rpx;
+    /*width: 200rpx;*/
+    margin: 10rpx;
+    font-size: 11pt;
+    /*align-self: flex-end;*/
+}
+
+.qr_code_button{
+    background-color: #efefef;
+}
+
+.pay_button{
+    background-color: #09bb07;
+    color: #ffffff;
+}
+
+.delete_button{
+    /*border-width: 10rpx;*/
+    /*border-color: red;*/
+    background-color:red;
+    color: #ffffff;    
+}
+
+.epo_container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.img_ct{
+  margin-top: 100rpx;
+}

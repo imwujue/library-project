@@ -1,0 +1,83 @@
+<view class="Info">
+  <view  bindtap="bindViewTap" class="userinfo" style="background-image: url(https://www.biulibiuli.cn/hhlab/images/bg.jpeg);">
+    <view>
+    <image class="userinfo-avatar" src="{{userInfo.image}}" background-size="cover"></image>  
+    </view>
+    <view style="margin-top:-5rpx; text-align: center" >
+    <text class="userinfo-nickname" wx:if="{{userInfo.name.length != 0}}">{{userInfo.name}}</text>
+    <text wx:else class="userinfo-nickname">{{uInfo.nickName}}</text>
+    <button wx:if="{{afterLogin}}" class="exit"  catchtap="toExit">退出</button>
+    </view>
+  </view>
+</view>
+
+<view class="after_login" wx:if="{{afterLogin}}">
+ <view class="ttt" >
+  <image class="title_pic" src="../../images/icon/title.png"></image>
+  <view class="little_title">
+    订单详情
+  </view>
+ </view>
+
+ <view class="OrederInfo">
+   <view class="timeout" bindtap="timeout">
+   <image src="../../images/icon/failed.png" style="width:90rpx; height:90rpx;"></image>
+   <text>已失效</text>
+   </view>
+   <view  class="failed" bindtap="ToFailed">
+   <image src="../../images/icon/cry-2.png" style="width:80rpx; height:80rpx;"></image>
+   <text>未完成</text>
+   </view>
+   <view class="success" bindtap="ToSuccess">
+   <image src="../../images/icon/Smile-2.png" style="width:80rpx; height:80rpx;"></image>
+   <text>已完成</text>
+   </view>
+
+</view>
+
+<view class="ttt" >
+  <image class="title_pic" src="../../images/icon/title.png"></image>
+  <view class="little_title">
+    其他
+  </view>
+</view>
+
+<view class="kind-list">
+   <view class="navigator-box-show" style="padding-top:25rpx">
+     <view class="navigator" catchtap="toPersonal">
+      <view class="navigator-text" >我的主页</view>
+      <view class="navigator-arrow"></view>
+    </view>
+   </view>
+  </view>
+  <view class="navigator-box-show" style="padding-top:-5rpx; margin-top:-15rpx" >
+     <navigator url="../orders/reservation/reservation" class="navigator">
+      <view class="navigator-text">我的预定</view>
+      <view class="navigator-arrow"></view>
+    </navigator>
+   </view>
+
+  <view class="navigator-box-show" style="padding-top:-5rpx; margin-top:-15rpx" >
+     <navigator url="../settings/recommendation/recommendation" class="navigator">
+      <view class="navigator-text">个人设置</view>
+      <view class="navigator-arrow"></view>
+    </navigator>
+   </view>
+  
+
+   <view class="navigator-box-show" style="padding-top:-5rpx; margin-top:-15rpx"> 
+     <navigator url="../userRecord/userRecord" class="navigator">
+      <view class="navigator-text">年度数据</view>
+      <view class="navigator-arrow"></view>
+    </navigator>
+   </view>
+
+</view>
+
+<view class="before_login" wx:if="{{!afterLogin}}">
+<text> 您目前还没有登录哦～～ </text>
+<view class="Tologin">
+<button catchtap="toLogin" class="l_btn"> 登录 </button>
+</view>
+</view>
+ 

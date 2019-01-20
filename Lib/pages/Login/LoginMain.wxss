@@ -1,0 +1,51 @@
+/* pages/Login/LoginMain.wxss */
+/**index.wxss**/
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 200rpx;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 180rpx;
+  height: 180rpx;
+  margin: 40rpx;
+  border-radius: 50%;
+  border-width: 3rpx;
+  border-color: #ffffff;
+}
+
+.userinfo-nickname {
+    color: #555555;
+}
+
+.usermotto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 200rpx;
+    width: 500rpx
+}
+
+.login_button{
+    width: 100%;
+    font-weight: 300;
+    margin-bottom: 30rpx;
+}
+
+.user-motto{
+    font-weight: 300;
+    font-size: 30rpx;
+    font-style: normal;
+    color: #bbbbbb;
+}
+
+/* pages/Login/LoginMain.wxss */

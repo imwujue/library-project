@@ -1,0 +1,42 @@
+<!--LoginMain.wxml-->
+
+<view class="content">
+
+    <view class="header" style="background-color:#fff">
+         <image src="../../images/icon/avantar.png" style="width:85% ; height:500rpx; margin:auto" ></image>
+    </view>
+<!--header and logo area-->
+<form bindsubmit="login">
+    <view class="sub-container">
+        <view class="row_box">
+            <view class="tip_area"><text>手机号码</text></view>
+            <view class="input_area">
+                <input name="phone_num" bindinput="phone_input" focus="{{focus_cell}}" type="number" maxlength="11" placeholder-class="place_holder_text" class="input_box" placeholder="请输入手机号码" />
+            </view>                
+            <view class="tap_area" bindtouchend="confirm_button"  style="color: {{tap_color}}">{{button_text}}</view>
+            
+        </view>
+
+        <view class="row_divider"/>
+
+        <view class="row_box">
+            <view class="tip_area"><label for="check_code">验证码</label></view>
+            <view class="input_area">
+                <input name="check_code" id="check_code" bindinput="check_code_check" focus="{{check_code}}" type="number" placeholder-class="place_holder_text" class="input_box" placeholder="请输入验证码" maxlength="6" />
+            </view>                
+            <label for="check_code"><view class="tap_area"></view></label>
+            
+        </view>
+        <view class="row_divider"/>
+
+    </view>        
+<!--end of Phone number input part-->
+
+    <view class="button_area">
+        <button loading="{{loading_logo}}" form-type="submit" type="primary" disabled="{{submit_button}}" class="button_sytle" >提交</button>
+        <button type="default" bindtap="return_bc" class="button_sytle">返回首页</button>
+    </view>
+
+    </form>
+    
+</view>

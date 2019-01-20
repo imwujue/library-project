@@ -1,0 +1,78 @@
+/* pages/settings/userInfo/userInfo.wxss */
+.container{
+    background-color: #f8f8f8;
+    padding-top: 40rpx;
+    padding-bottom: 100rpx;
+}
+
+.content_box{
+    /*padding-bottom: 20rpx;*/
+    background-color: #ffffff;
+    margin-bottom: 40rpx;
+}
+.icon_image{
+    height: 37rpx;
+    width: 20rpx;
+}
+.input_title{
+    /*margin-bottom: 5rpx;    */
+    padding: 20rpx;
+    /*background-color: aqua;*/
+}
+
+.title_text{
+    padding-left: 5rpx; 
+    color:#585858;
+}
+
+.placeholder {
+  font-size: 17px;
+  color: #d1d1d1;
+  margin-left: 20rpx;
+}
+
+.divider{
+    height: 3rpx;
+    width: 80%;
+    background-color: #f8f8f8;  
+    margin-left: auto;
+    margin-right: auto;  
+    /*align-self: center;*/
+}
+
+.input_content{
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+    /*height: 130rpx;*/
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    width: 710rpx;
+}
+
+.key_name{
+    margin-left: 25rpx;
+    width: 200rpx;
+    /*background-color: bisque;*/
+}
+
+.value_box{
+    /*background-color: blue;*/
+    width: 500rpx;
+    padding: 15rpx;
+}
+
+.line_text{
+    font-weight: 300;
+    line-height: 30pt;
+}
+
+.opts{
+  width: 650rpx;
+  font-size: 30rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+.opts:hover{
+    opacity: 0.5;
+}

@@ -1,0 +1,146 @@
+<!--pages/settings/userInfo/userInfo.wxml-->
+
+<view class="container">
+  <form catchsubmit="submits">
+    <!--个人信息-->
+    <view class="input_title">
+      <image class="icon_image" src="../../../images/icon/title.png"></image>
+      <text class="title_text">个人信息</text>
+    </view>
+    <view class="content_box">
+      <view class="input_content">
+        <view class="key_name">
+          <text class="line_text">姓名</text>
+        </view>
+        <view class="value_box">
+          <input id="name"  bindinput="update" name="name" placeholder-class="placeholder" value="{{user_detail.user_name}}" placeholder="请输入您的姓名" type="text" />
+        </view>
+      </view>
+      <view class="divider"></view>
+
+      <view class="input_content">
+        <view class="key_name">
+          <text class="line_text">生日</text>
+        </view>
+        <view class="value_box" style="padding : 0px;">
+          <picker bindchange="birthday_change" name="birthday" value="{{birthday}}" mode="date">
+            <text wx:if="{{birthday != null}}" class="line_text" style="padding-left:5rpx;">{{birthday}}</text>
+            <text wx:else class="placeholder line_text" style="padding-left:5rpx;">请选择您的生日</text>
+          </picker>
+        </view>
+      </view>
+      <view class="divider"></view>
+
+      <view class="input_content">
+        <view class="key_name">
+          <text class="line_text">学历</text>
+        </view>
+        <view class="value_box" style="padding : 0px;">
+          <picker bindchange="deploma_change" value="{{diploma}}" range="{{deploma}}" name="deploma" mode="selector">
+            <text wx:if="{{diploma!=0}}" class="line_text">{{deploma[diploma]}}</text>
+            <text wx:else class="placeholder line_text" style="padding-left:5rpx;">请选择您的学历</text>
+          </picker>
+        </view>
+      </view>
+      <view class="divider"></view>
+
+    </view>
+
+
+    <view class="input_title">
+      <image class="icon_image" src="../../../images/icon/title.png"></image>
+      <text class="title_text">联系方式</text>
+    </view>
+    <view class="content_box">
+      <!--通讯地址-->
+      <view class="input_content">
+        <view class="key_name">
+          <text class="line_text">电子邮箱</text>
+        </view>
+        <view class="value_box">
+          <input  bindinput="update" id="email" name="email" placeholder-class="placeholder" value="{{user_detail.email}}" type="text" placeholder="请输入您的电子邮箱" />
+        </view>
+      </view>
+      <view class="divider"></view>
+      <view class="input_content">
+        <view class="key_name">
+          <text class="line_text">手机号</text>
+        </view>
+        <view bindtap="phone_note" value="{{user_detail.phone_num}}" class="value_box">
+          <text wx:if="{{user_detail.phone_num == ''}}" bindtap="phone_note" class="placeholder">请输入您的手机号</text>
+          <text wx:else="{{user_detail.phone_num != ''}}" bindtap="phone_note" >{{user_detail.phone_num}}</text>          
+        
+          <!--<input name="phone_num" placeholder-class="placeholder" placeholder="请输入您的手机号" disabled bindtap="phone_note" value="{{user_detail.phone_num}}" type="number" />-->
+          </view>
+        </view>
+        <view class="divider"></view>
+      </view>
+
+
+      <view class="input_title">
+        <image class="icon_image" src="../../../images/icon/title.png"></image>
+        <text class="title_text">身份信息</text>
+        <text class="title_text" style="font-size: 13px">(身份信息提交后不得修改)</text>        
+      </view>
+      <view class="content_box">
+        <!--身份信息-->
+        <view class="input_content">
+          <view class="key_name">
+            <text class="line_text">证件类型</text>
+          </view>
+          <view class="value_box" style="padding : 0px;">
+            <picker bindchange="id_type_change" disabled="{{tem_user.id_type!=0 && tem_user.id_num != null}}" name="cert_type" range="{{id_type}}" value="{{cert_type}}" mode="selector">
+              <text wx:if="{{cert_type == 0}}" class="placeholder line_text" style="padding-left:5rpx;">请选择证件类型</text>
+              <text wx:else class=" line_text" style="padding-left:5rpx;">{{id_type[cert_type]}}</text>
+            </picker>
+          </view>
+        </view>
+        <view class="divider"></view>
+        <view class="input_content">
+          <view class="key_name">
+            <text class="line_text">证件号</text>
+          </view>
+          <view class="value_box">
+            <input  bindinput="update" id="id" data-da="value" disable="{{tem_user.id_num != null && tem_user.id_type!=0}}" name="id" placeholder-class="placeholder" placeholder="请输入您的证件号" value="{{user_detail.id_num}}" type="text" />
+          </view>
+        </view>
+      </view>
+
+
+
+      <view class="input_title">
+        <image class="icon_image" src="../../../images/icon/title.png"></image>
+        <text class="title_text">通信地址</text>
+      </view>
+      <view class="content_box">
+        <!--通讯地址-->
+        <view class="input_content">
+          <view class="key_name">
+            <text class="line_text">邮寄地址</text>
+          </view>
+          <view class="value_box">
+            <input  bindinput="update" id="address" name="address" placeholder-class="placeholder" type="text" value="{{user_detail.mail_address}}" placeholder="请输入您的邮寄地址" />
+          </view>
+        </view>
+        <view class="divider"></view>
+        <view class="input_content">
+          <view class="key_name">
+            <text class="line_text">邮政编号</text>
+          </view>
+          <view class="value_box">
+            <input bindinput="update"  id="mail_codew" name="mail_codew" placeholder-class="placeholder" placeholder="邮政编号" value="{{user_detail.mail_code}}" type="number" />
+          </view>
+        </view>
+      </view>
+
+
+      <button class="opts" form-type="submit" style=" border-color:#fdc441; background-color: #ffb936; margin-bottom : 40rpx; color: #ffffff">提交</button>
+      <button class="opts" bindtap="return_back" style=" border-color:#fdc441; background-color: #eee; color: #000">返回上一页</button>
+
+      <view class="content_box">
+
+      </view>
+
+  </form>
+
+  </view>

@@ -1,0 +1,28 @@
+<!--pages/settings/recommendation/recommendation.wxml-->
+<view class="page_content vertical_mid">
+    <view class="setting_row horizen_display">
+        <view class="flex_start"><text class="">开启推荐</text></view>
+        <view class="flex_end"><switch bindchange="recommendation" checked="{{recommendation}}" type="switch" /></view>
+    </view>
+
+
+    <view wx:if="{{recommendation}}" class="setting_row horizen_display">
+        <view class="flex_start"><text class="">推荐频率</text></view>
+        <picker bindchange="bindPickerChange" value="{{selected_frequence}}" range="{{frequence}}">
+        <view class="flex_end"><view style="padding-top:12rpx">{{frequence[selected_frequence]}}</view></view>
+        </picker>
+    </view>
+
+
+    <view class="setting_row horizen_display">
+        <view class="divide_line"></view>
+    </view>
+
+
+    <view class="setting_row" style="margin-top:100rpx;">
+        <view bindtap="edit_info">完善个人信息</view>
+    </view>
+    <view class="setting_row horizen_display">
+        <view class="divide_line"></view>
+    </view>
+</view>

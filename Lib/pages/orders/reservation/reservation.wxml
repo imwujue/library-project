@@ -1,0 +1,103 @@
+<!--pages/orders/reservation/reservation.wxml-->
+
+    <!--// dn-paid  dn-confirmed  on-going  failed-->
+
+<view class="order_area">
+
+<view wx:if="{{reservation_orders.valid_orders.length == 0}}" class="epo_container">
+
+    <view class="img_ct">
+      <image src="/images/icon/empty_order.png"></image>
+    </view>
+
+    <view class="img_ct">
+      <text>您还没有订单，快去借本书试试！</text>
+    </view>
+
+  </view>
+
+<!--当前的订单-->
+    <block wx:for-items="{{reservation_orders.valid_orders}}" wx:key="{{reservation_orders.valid_orders.id}}">
+        <view class="order_bg">
+            <!--control button-->
+            <view class="control_area">
+            <!--icon-->
+                <icon wx:if="{{item.order_state == 'waiting'}}" type="waiting" class="icon" size="20" />
+                <icon wx:if="{{item.order_state == 'ready'}}" type="success" class="icon" size="20" />
+                <icon wx:if="{{item.order_state == 'finished'}}" type="success" class="icon" size="20" />                
+                <icon wx:if="{{item.order_state == 'out_of_time'}}" type="cancel" class="icon" size="20" />
+                <view class="control_text_box">
+                    <text class="control_text">我的订单</text>
+                </view>
+                <view class="control_state_box">
+                    <text wx:if="{{item.order_state == 'ready'}}" class="control_text" >预订成功</text>
+                    <text wx:if="{{item.order_state == 'waiting'}}" class="control_text" >正在预订</text>
+                    <text wx:if="{{item.order_state == 'out_of_time'}}" class="control_text" >已失效</text>
+                    <text wx:if="{{item.order_state == 'finished'}}" class="control_text">已确认订单</text>
+                </view>
+            </view>
+
+
+            <!--book info-->
+            <view class="book_area">
+
+            <!--progress bar-->
+            <view class="progress-box">
+                <!--进度条-->
+                <progress wx:if="{{item.order_state == 'waiting'}}" percent="50" color="#f5b936" active stroke-width="3" />
+                <progress wx:if="{{item.order_state == 'ready'}}" percent="100" color="#76d737" active stroke-width="3" />
+                <progress wx:if="{{item.order_state == 'finished'}}" percent="100" color="#76d737" active stroke-width="3" />
+                <progress wx:if="{{item.order_state == 'out_of_time'}}" percent="100" color="red" active stroke-width="3" />
+            </view>            
+            <!--end of progress bar-->
+
+                <view class="book_box">
+                    <view class="book_content">
+                        <view class="book_img">
+                            <!--the image of the book-->
+                            <image src="{{item.books.book_img_url}}" class="book_img_pic"></image>
+                        </view>
+                        <view class="book_intro">
+                            <view class="book_info_text">
+                                <text class="book_intro_title">{{item.books.book_title}}</text>
+                            </view>
+                            <view class="book_info_text">
+                                <text class="book_intro_content">{{item.books.book_content}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="state_button">
+                        <button bindtap="viewBook" id="{{item.books.book_url}}" class="check_button" name="{{item.books.book_url}}" type="default">查看</button>
+                    </view>
+                </view>
+                
+
+            <!--detail info -->
+            <view class="info_m_area">
+            <text wx:if="{{item.order_state == 'waiting'}}" class="info_text">您之前共有{{item.people_waiting}}位用户在等待</text>
+
+            <text wx:if="{{item.order_state == 'out_of_time'}}" class="info_text">订单已失效，请重新预订或联系管理员</text>
+                <block wx:for-items="{{item.order_info}}">
+                    <view class="info_line">
+                        <text class="info_text">{{item}}</text>
+                    </view>
+                </block>
+            </view>
+            <!--info end-->
+
+                <view class="button_area">
+                    <view class="button_row">
+                        <button bindtap="confirmOrder" wx:if="{{item.order_state == 'ready'}}"  id="{{item.id}}" class="code_button pay_button">去确认订单</button>
+                        <button wx:if="{{item.order_state == 'waiting'}}" bindtap="cancleReservation" id="{{item.id}}" class="code_button delete_button">取消预订</button>
+                        <button wx:if="{{item.order_state == 'out_of_time' || item.order_state == 'finished'}}" bindtap="deleteOrder" id="{{item.id}}" class="code_button delete_button">删除订单</button>
+                    </view>
+                </view>
+            </view>
+            <!--book info end-->
+        </view>
+
+    </block>
+
+
+</view>
+

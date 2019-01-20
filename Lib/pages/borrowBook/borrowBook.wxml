@@ -1,0 +1,52 @@
+<view class="booklist">
+<view class="after_login" wx:if="{{afterLogin}}">
+<view class="cart-box">
+    <!-- wx:for 渲染列表 -->
+    <view wx:for="{{books}}" class="cart-list" wx:key="{{index}}">
+       <!-- wx:if 是否选择显示不同图标 -->
+        <icon wx:if="{{item.selected}}" type="success" color="orange" bindtap="selectList" data-index="{{index}}"  class="cart-pro-select"/>
+        <icon wx:else type="circle" class="cart-pro-select" bindtap="selectList" data-index="{{index}}"/>
+        
+       <!-- 点击图片可跳转到详情 -->
+        <navigator url="../bookDetail/bookDetail?unid=nul&isbn={{item.bookId}}">
+            <image class="cart-thumb" src="{{item.url}}"></image>
+        </navigator>
+        <view class="cart-pro-name">
+        <text>{{item.title}}{{t}}</text>
+        <text style="font-size:25rpx;">图书编号: {{item.unid}}{{t}}</text>
+        <text style="font-size:25rpx;">馆藏量：<text style="color:#7bd631">{{item.storage_cb}} </text> / {{item.storage}} 本 </text>
+        </view>
+        
+        <!-- 删除按钮 -->
+        <text class="cart-del" bindtap="deleteList" data-index="{{index}}"> × </text>
+    </view>
+</view>
+</view>
+		
+ 	<!-- cart -->
+<view class="cart">
+	<text class="total">已加入：{{cartTotal}}本书</text>
+  <text style="font-size:20rpx" class="notice" wx:if="{{cartTotal>2}}">(每次借书最多两本)</text>
+  <view class="buttonMenu">
+    <button  class="opts"  bindtap="CreateOrder" style="background-color:{{color}};" data-se_books="{{books}}" data-num="{{cartTotal}}">
+      生成订单
+    </button>
+    </view>
+</view>
+
+</view>
+
+<view class="before_login" wx:if="{{beforeLogin}}">
+<text> 您目前还没有登录哦～～ </text>
+<view class="Tologin">
+<button catchtap="toLogin" class="l_btn"> 登录 </button>
+</view>
+</view>
+
+<view class="no_more" wx:if="{{no_more}}">
+ <text style="margin-left:170rpx;">您还没有添加书籍{{char_gt}}_{{char_lt}} </text>
+ <view style="margin-left:150rpx;"><image src="../../images/icon/no_more.png" style="width:350rpx; height:360rpx;"></image> </view>
+</view>
+
+
+

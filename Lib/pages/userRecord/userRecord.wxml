@@ -1,0 +1,49 @@
+<!--userRecord.wxml-->
+<view class="content">
+ <view class="Info">
+
+  <view  bindtap="bindViewTap" class="userinfo">
+    <view>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>  
+    </view>
+    <text class="userinfo-nickname">{{userInfo.nickName}}  </text>
+  </view>
+ </view>
+
+ <view class="rank_block" style="margin-top:70rpx" style="background:#e8662f">
+  <image class="record_logo" src="../../images/icon/rank.png"></image>
+  <text>年度阅读排名</text>
+  <view class="user_data">
+   <text wx:if="{{!data_null}}">你已打败{{rank}}%的用户</text>
+   <text wx:else>您当前还没有使用系统，暂无数据</text>
+   </view>
+
+ </view>
+
+ <view class="rank_block" style="background:#f1912e">
+ <image class="record_logo" src="../../images/icon/amounts.png"></image>
+  <text>年度阅读量</text>
+  <view class="user_data">
+  <text wx:if="{{!data_null}}">{{amount}}本</text>
+  <text wx:else>您当前还没有使用系统，暂无数据</text>
+  </view>
+  
+ </view>
+
+ <view class="rank_block" style="background:#ecc882">
+ <image class="record_logo" src="../../images/icon/sorts.png"></image>
+ <text>年度最爱类别</text>
+  <view class="user_data">
+
+  <text wx:if="{{!data_null}}">{{sorts}}</text>
+  
+  <text wx:else>您当前还没有使用系统，暂无数据</text>
+  </view>
+ 
+ </view>
+
+  
+
+
+</view>
+

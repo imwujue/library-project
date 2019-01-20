@@ -1,0 +1,74 @@
+<import src="../templates/bookInfo.wxml" />
+<import src="../templates/bookList.wxml" />
+<view class="search">
+  <view class="text_box" catchtap="toSearch">
+   <text  class="search_text">搜索</text>
+  </view>
+  <view class="scan_icon">
+    <image src="../../images/icon/scan.png" class="scan" bindtap="scanCode"></image>
+  </view>
+</view>
+
+<view class="container" style="overflow:hidden">
+  <!-- 推荐模块 -->
+  <!--hot recommand-->
+  <view class="Reco_BookInfo"  style="overflow:hidden">
+    <view class="ttt" style="  overflow-x: hidden;">
+        <image class="title_pic" src="../../images/icon/title.png"></image>
+        <view class="little_title">
+          热门推荐
+        </view>
+    </view>
+    <template is="bookListTemplate" data="{{...Command}}"></template>
+  </view>
+  
+  <!--self recommand -->
+   <view class="Reco_BookInfo"  wx:if="{{containerShow}}"  style="overflow:hidden">
+    <view class="ttt" style="  overflow-x: hidden;">
+        <image class="title_pic" src="../../images/icon/title.png"></image>
+        <view class="little_title">
+          个性化推荐
+        </view>
+    </view>
+        <!--登录之后才回有信息显示 -->
+      <view wx:if="{{usrLogin}}">
+        <view style="margin-top:-48rpx;" bindtap="cancel_rec"><image bindtap="cancel_rec" src="../../images/icon/xx.png" class="xx"></image> </view>
+         <template is="bookListTemplate" data="{{...personalCommand}}"></template>
+       </view>
+      </view>
+       <view class="beforeLogin" wx:if="{{!usrLogin}}">
+        <view  bindtap="login"><text style="color:#fdc441">登录</text> </view><text>获取个性化推荐～</text>
+       </view>
+  </view>
+    
+    <!-- end -->
+
+    <!-- 图书分类 -->
+    <view class="ttt">
+      <image class="title_pic" src="../../images/icon/title.png"></image>
+      <view class="little_title">
+        图书分类
+      </view>
+    </view>
+    
+    <view class="index-bd" style="background:#fff"> 
+      <view class="kind-list">
+        <block wx:for-items="{{list}}" wx:key="{{item.id}}">
+          <view class="kind-list-item">
+            <view id="{{item.id}}" class="kind-list-item-hd {{item.open ? 'kind-list-item-hd-show' : ''}}" bindtap="kindToggle">
+              <view class="kind-list-text">{{item.name}}</view>
+            </view>
+            <view class="kind-list-item-bd {{item.open ? 'kind-list-item-bd-show' : ''}}">
+              <view class="navigator-box {{item.open ? 'navigator-box-show' : ''}}">
+                <block wx:for-items="{{item.pages}}" wx:for-item="page" wx:key="*item">
+                  <navigator url="../sortDetail/sortDetail?sid={{page.sid}}&&tt={{page.tt}}" class="navigator">
+                    <view class="navigator-text">{{page.tt}}</view>
+                    <view class="navigator-arrow"></view>
+                  </navigator>
+                </block>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+   </view>

@@ -1,0 +1,23 @@
+<view class="ttt" style="overflow:hidden">
+    <image class="title_pic" src="../../images/icon/title.png"></image>
+    <view class="little_title">
+    {{msg}}
+    </view>
+</view>
+<view class="allpeople" style="overflow:hidden">
+  <block wx:for="{{people}}" wx:for-item="people"  wx:key="index">
+     <view class="peopleCard">
+      <view>
+         <image wx:if="{{people.image.length == 0}}" class="userinfo-avatar" src="../../images/index/temp_user.png" background-size="cover" data-user="{{people.userid}}" bindtap="to_personalPage"></image>
+         <image wx:else class="userinfo-avatar" src="{{people.image}}" background-size="cover" data-user="{{people.userid}}" bindtap="to_personalPage"></image>
+         <view style="margin-top:-85rpx; margin-left:100rpx; flex-direction:row">  
+          <text wx:if="{{people.name.length > 0}}">{{people.name}}{{t}}</text>
+          <text style="font-size:25rpx;">粉丝： {{people.fan}}</text>
+         </view>
+      </view>
+    </view>
+     
+  </block>
+</view>
+
+<loading hidden="{{hiddenLoading}}">数据正在加载</loading>

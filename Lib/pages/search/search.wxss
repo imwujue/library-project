@@ -1,0 +1,133 @@
+.search {
+  background-color: #464646;
+  height: 100rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  /*border:1px solid black;*/
+}
+
+.Search_img {
+  margin: auto 0 auto 20rpx;
+  /*border:1px solid black;*/
+}
+
+.search input {
+  background-color: #fff;
+  width: 530rpx;
+  height:60rpx;
+  margin-left:100rpx;  
+  border-radius: 5px;
+  padding-left: 20rpx;
+  /*border: 1rpx solid #d1d1d1;*/
+}
+.search text{
+  color: #fff;
+  margin-left: 670rpx;  
+  /*border: 1rpx solid #d1d1d1;*/
+}
+
+.placeholder {
+  font-size: 14px;
+  color: #d1d1d1;
+  margin-left: 10rpx;
+
+}
+.Search_img{
+   height: 40rpx;
+   width: 40rpx;
+   margin:auto 0rpx auto 30rpx;
+}
+.no_result{
+  flex-direction: column; 
+  margin-top: 100rpx;
+  padding: 50rpx 0rpx 0rpx 50rpx;
+}
+
+.cart-list{
+    position: relative;
+    padding: 20rpx 20rpx 20rpx 285rpx;
+     background: #fff;
+    border-bottom: 1rpx solid #e9e9e9;
+}
+
+.cart-list-user{
+    position: relative;
+    padding: 20rpx 20rpx 20rpx 20rpx;
+    background: #fff;
+    border-bottom: 1rpx solid #e9e9e9;
+}
+
+.nav_list{
+  display: flex;
+  flex-direction: row;
+}
+
+.user_name{
+  margin-top: 30rpx;
+  margin-left: 40rpx;
+}
+
+.cart-list .cart-thumb{
+    position: absolute;
+    top: 20rpx;
+    left: 65rpx;
+    width: 145rpx;
+    height: 165rpx;
+}
+.cart-list .cart-pro-name{
+    display: inline-block;
+    line-height: 50rpx;
+    overflow: hidden;
+    margin-left: -30rpx;
+}
+
+.cart-user-url{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+}
+
+.history-list{
+    position: relative;
+    background: #fff;
+    border-bottom: 1rpx solid #e9e9e9;
+    padding: 20rpx 35rpx 5rpx 15rpx;
+}
+
+.history-list .cart-pro-name{
+    display: inline-block;
+    line-height: 50rpx;
+    overflow: hidden;
+    margin-left: 10rpx;
+}
+.history-list .cart-pro-name image{
+  width:40rpx;
+  height: 40rpx;
+  margin-right: 15rpx;
+}
+.history-list .cart-del{
+  float: right;
+}
+.fix_tip{
+    position: fixed;
+    bottom: 50rpx;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    transform: translate3d(0, 80rpx, 0);
+    transition: all .5s cubic-bezier(0.19, 1, 0.22, 1)
+}
+.fix_tip.active{
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+.fix_tip text{
+    font-size: 9pt;
+    line-height: 100%;
+    padding: 10rpx 20rpx;
+    border-radius: 10rpx;
+    background: rgba(66,66,66,.6);
+    color: #fff;
+}

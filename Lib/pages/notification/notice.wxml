@@ -1,0 +1,28 @@
+<!--pages/notification/notice.wxml-->
+
+<!--<template is="email"  class="email_box">
+    <view class="command_layer">
+        <button type="default"></button>
+    </view>
+    <view class="classname"></view>
+    <view class="classname">as</view>
+</template>-->
+
+<view class="box">
+    <block wx:for-items="{{messages}}" wx:key="{{item.id}}">
+        <view is="email" class="email_box" wx:if="{{item.show}}">
+            <view class="command_layer">
+                <text class="info_title">{{item.title}}</text>
+                <icon type="clear" size="23" id="{{item.id}}" bindtap="clear_message" class="clear_button"/>
+            </view>
+            <view class="message_layer">
+                <view class="content"><text class="content_text">{{item.content}}</text></view>
+                <view class="signature">            
+                    <text class="name">{{item.signature}}</text>
+                    <text class="name">{{item.date}}</text>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>
+

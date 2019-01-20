@@ -1,0 +1,23 @@
+<!--pages/Login/LoginMain.wxml-->
+
+<view class="container">
+
+  <view  bindtap="bindViewTap" class="userinfo">
+    <view>
+        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>  
+    </view>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <!--end of the user name-->
+
+
+  <view class="usermotto">
+  <!--<button>-->
+    <button class="login_button" bindtap="Log_WeChat" type="primary">使用微信登录</button>
+    <!--使用手机号登录-->
+
+    <text class="user-motto" bindtap="Log_Phone">使用手机号登录</text>
+    
+  </view>
+</view>
+

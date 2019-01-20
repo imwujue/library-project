@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/firstPage/firstPage",
+    "pages/bookDetail/bookDetail",
+    "pages/sortDetail/sortDetail",
+    "pages/borrowBook/borrowBook",
+    "pages/User/User",
+    "pages/notification/notice",
+    "pages/orders/QRPage/QRPage",
+    "pages/orders/finishedOrder/finishedOrder",
+    "pages/orders/unfinishedOrder/unfinishedOrder",
+    "pages/Login/CellPhone",
+    "pages/orders/reservation/reservation",
+    "pages/settings/userInfo/userInfo",
+    "pages/settings/recommendation/recommendation",
+    "pages/Login/LoginMain",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/search/search",
+    "pages/orders/failedOrder/failedOrder",
+    "pages/userRecord/userRecord",
+    "pages/moreComments/moreComments",
+    "pages/personalPage/personalPage",
+    "pages/followOrfan/followOrfan"
+  ],
+  "tabBar": {
+    "color": "#fff",
+    "selectedColor": "#fdc441",
+    "backgroundColor": "#464646",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "images/icon/homepage_s.png",
+        "iconPath": "images/icon/homepage.png",
+        "pagePath": "pages/firstPage/firstPage",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "images/icon/record_s.png",
+        "iconPath": "images/icon/record.png",
+        "pagePath": "pages/borrowBook/borrowBook",
+        "text": "借书栏"
+      },
+      {
+        "selectedIconPath": "images/icon/user_s.png",
+        "iconPath": "images/icon/user.png",
+        "pagePath": "pages/User/User",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#464646",
+    "navigationBarTitleText": "嚯哈图书馆",
+    "navigationBarTextStyle": "white"
+  }
+}

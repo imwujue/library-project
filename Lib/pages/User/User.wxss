@@ -1,0 +1,126 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 200rpx;
+}
+
+.userinfo {
+  padding-bottom: 15rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+ 
+.userinfo-avatar {
+  width: 175rpx;
+  height: 175rpx;
+  margin-top: 20rpx;
+  border-radius: 50%;
+  border-width: 3rpx;
+  border-color: #ffffff;
+}
+.userinfo-nickname {
+    color: #ffffff;
+
+}
+.exit{
+  height: 30px;
+  font-size: 25rpx;
+}
+
+.OrederInfo{
+ background: #ffffff;
+ flex: row;
+ padding: 30rpx 10rpx 30rpx 10rpx;
+}
+
+/*已失效订单*/
+.timeout{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100rpx;
+  margin-left: 70rpx;
+}
+
+/*未完成订单*/
+.failed
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100rpx;
+  margin-left: 310rpx;
+  margin-top: -133rpx;
+}
+
+/*已完成订单*/
+.success
+{ display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100rpx;
+  margin-left: 560rpx;
+  margin-top: -130rpx;
+}
+
+.navigator-box-show {
+  opacity: 1;
+  width: 100%;
+  height: 100rpx;
+  margin: auto;
+  background-color: #FFFFFF; 
+  line-height: 1.41176471;
+  font-size: 34rpx;
+  transform: translateY(0);
+  padding-top:25rpx
+  
+}
+.navigator:after {
+  content: " ";
+  position: absolute;
+  left: 30rpx;
+  top: 90rpx;
+  right: 30rpx;
+  height: 1px;
+  border-bottom: 1rpx solid #D8D8D8;
+  color: #D8D8D8;
+}
+.navigator-text {
+  flex: 1;
+  width: 200rpx;
+  /*border:1px solid #888888;*/
+  font-size: 30rpx;
+  padding-top:15rpx; 
+  margin-left: 60rpx;
+}
+.navigator-arrow {
+  padding-right: 26rpx;
+  display: inline-block;
+  height: 35rpx;
+  width: 10rpx;
+  border-width: 2rpx 2rpx 0 0;
+  border-color: #888888;
+  border-style: solid;
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  position: absolute;
+  right: 28rpx;
+  margin-top: -35rpx;
+}
+
+.before_login{
+  margin:200rpx 0 0 240rpx;
+}
+
+.l_btn{
+  width: 180rpx;
+  height:70rpx;
+  background-color: #464646;
+  margin-left: 70rpx;
+  font-size: 30rpx;
+  color: #fdbc39;
+  border: 1px solid #D8D8D8;
+  border-radius: 3rpx;
+}
+

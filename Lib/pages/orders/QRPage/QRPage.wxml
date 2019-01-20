@@ -1,0 +1,22 @@
+<!--pages/orders/QRPage/QRPage.wxml-->
+<!--pages/main/index.wxml-->
+<view class="container-box">
+  <view class="img-box">
+    <canvas style="width: 686rpx;height: 686rpx;background:#f1f1f1;" canvas-id="mycanvas" />
+    <!--<image bindtap="previewImg" mode="scaleToFill" src="{{imagePath}}"></image>-->
+    <view class="mid_text">
+        <text>{{button_text}}</text>
+    </view>
+  </view>
+  <form bindsubmit="formSubmit">
+    <!--<view class="input-row">
+            <label>金额</label>
+            <input name="money" type="number" maxlength="7"  placeholder="1000000"/>
+        </view>-->
+    <button class="mybtn" bindtap="page_return" type="default">返回</button>
+  </form>
+</view>
+<view hidden="{{maskHidden}}" class="mask"></view>
+<view class="canvas-box">
+
+</view>

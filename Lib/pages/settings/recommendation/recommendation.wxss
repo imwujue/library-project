@@ -1,0 +1,47 @@
+/* pages/settings/recommendation/recommendation.wxss */
+.page_content{
+    margin-top: 100rpx;
+    width: 710rpx;
+    padding: 20rpx;
+}
+
+.vertical_mid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.horizen_display{
+    width: 710rpx;
+    
+    display: inline-block;
+    justify-content: center;
+}
+
+.flex_center{
+    /*align-self: center;*/
+}
+
+.flex_start{
+    padding-top: 12rpx;
+    padding-bottom: 12rpx;
+    float: left;
+    margin-left: 80rpx;
+}
+
+.flex_end{
+    float: right;
+    margin-right: 80rpx;
+}
+
+.setting_row{
+    margin-bottom: 50rpx;
+}
+
+.divide_line{
+    background-color: darkgray;
+    height: 3rpx;
+    /*width: 550rpx;*/
+    
+}
